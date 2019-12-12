@@ -1,16 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AddContent from "./components/TextInput/AddContent";
 import { date } from "./models/dateData";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import Button from "./components/Button";
+import reducer from "./reducer";
+
+let store = createStore(reducer);
 
 class App extends React.Component {
   render() {
     console.log(date[2]);
     return (
-      <View style={styles.container}>
-        <Text>daily date</Text>
-        <AddContent />
-      </View>
+      <Provider store={store}>
+        <Button />
+      </Provider>
     );
   }
 }
