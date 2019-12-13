@@ -1,16 +1,26 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+import PropTypes from "prop-types";
 
-class Button extends React.Component {
-  render() {
-    const { reduxT } = this.props;
+const Button = ({ iconName, action, size = 20 }) => {
+  return (
+    <TouchableOpacity onPress={action} style={styles.btn}>
+      <FontAwesome name={iconName} size={size} />
+    </TouchableOpacity>
+  );
+};
 
-    console.log(reduxT);
-    return (
-      <TouchableOpacity>
-        <Text>testtest</Text>
-      </TouchableOpacity>
-    );
+Button.prototype = {
+  iconName: PropTypes.string.isRequried,
+  action: PropTypes.func.isRequried,
+  size: PropTypes.number.isRequried
+};
+
+const styles = StyleSheet.create({
+  btn: {
+    alignItems: "center",
+    justifyContent: "center"
   }
-}
+});
 export default Button;

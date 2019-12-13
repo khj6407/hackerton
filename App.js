@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import { date } from "./models/dateData";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -12,9 +12,12 @@ class App extends React.Component {
   render() {
     console.log(date[2]);
     return (
-      <Provider store={store}>
-        <Button />
-      </Provider>
+      <View style={styles.container}>
+        <Provider store={store}>
+          <StatusBar barStyle="dark-content" />
+          <Button iconName="stop" size={40} />
+        </Provider>
+      </View>
     );
   }
 }
