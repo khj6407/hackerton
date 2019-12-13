@@ -8,6 +8,8 @@ import reducer from "./reducer";
 
 let store = createStore(reducer);
 
+//test commit
+
 class App extends React.Component {
   render() {
     console.log(date[2]);
