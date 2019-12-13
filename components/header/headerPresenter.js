@@ -6,8 +6,8 @@ class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FontAwesome name={"calendar"} size={40} />
-        <Text style={styles.text}>오 늘</Text>
+        <FontAwesome name={"calendar"} size={35} />
+        <Text style={styles.text}>밤샘 결과물</Text>
       </View>
     );
   }
@@ -15,20 +15,18 @@ class Header extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.4,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginLeft: 30,
-    marginTop: 60
+    alignItems: "flex-end",
+    marginLeft: 30
   },
   text: {
-    color: "#a29bfe",
+    color: "#182C61",
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: 30,
-    marginLeft: 20,
-    padding: 5
+    fontSize: 28,
+    marginLeft: 20
   }
 });
 

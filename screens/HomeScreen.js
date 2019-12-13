@@ -17,6 +17,7 @@ import AddContent from "../components/TextInput/AddContent";
 import StartPage from "../components/Start/startPresenter";
 import styled from "styled-components";
 import { FontAwesome } from "@expo/vector-icons";
+import Header from "../components/header";
 
 let store = createStore(reducer);
 
@@ -54,6 +55,7 @@ class App extends React.Component {
 
     return loading ? (
       <View style={styles.container}>
+        <Header />
         <View style={styles.upArea}>
           <StatusBar barStyle="dark-content" />
           <View style={styles.monthBtn}>
@@ -173,21 +175,21 @@ const styles = StyleSheet.create({
     color: "#2C3A47"
   },
   upArea: {
-    flex: 1,
+    flex: 0.5,
     alignItems: "center",
     justifyContent: "center"
   },
   downArea: {
-    flex: 2,
+    flex: 2.5,
     alignItems: "center",
     justifyContent: "center"
   },
   monthBtn: {
     flexDirection: "row",
-    marginTop: 50
+    marginTop: 40
   },
   dayTxt1: {
-    backgroundColor: "#FDA7DF",
+    backgroundColor: "#B33771",
     width: 37,
     height: 37,
     color: "#Fff",
@@ -199,7 +201,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   dayTxt2: {
-    backgroundColor: "#FDA7DF",
+    backgroundColor: "#B33771",
     width: 37,
     height: 37,
     color: "#Fff",
@@ -211,7 +213,7 @@ const styles = StyleSheet.create({
     fontSize: 23
   },
   dayTxt3: {
-    backgroundColor: "#FDA7DF",
+    backgroundColor: "#B33771",
     width: 37,
     height: 37,
     color: "#Fff",
@@ -223,7 +225,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   dayTxt4: {
-    backgroundColor: "#FDA7DF",
+    backgroundColor: "#B33771",
     width: 37,
     height: 37,
     color: "#Fff",
