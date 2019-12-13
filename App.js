@@ -14,6 +14,7 @@ import Button from "./components/Button";
 import reducer from "./reducer";
 import Calendar from "./components/Calendar";
 import AddContent from "./components/TextInput/AddContent";
+import StartPage from "./components/Start/startPresenter";
 let store = createStore(reducer);
 
 class App extends React.Component {
@@ -49,6 +50,7 @@ class App extends React.Component {
         <Provider store={store}>
           <StatusBar barStyle="dark-content" />
           <AddContent />
+          <StartPage />
         </Provider>
         <Calendar />
 
