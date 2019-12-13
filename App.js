@@ -17,23 +17,33 @@ import AddContent from "./components/TextInput/AddContent";
 let store = createStore(reducer);
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount = async () => {
+    let date, month;
 
-    let date = new Date();
-    const cuurentMonth = date.getMonth() + 1;
-    this.setState({
-      cuurentMonth
-    });
-  }
+    try {
+      date = await date.getDay();
+      month = await date.getMonth();
+    } catch (error) {
+      alert("실패다");
+    } finally {
+      date = date.data.results;
+      month = month.data.results;
+
+      this.setState({
+        viewDate: date,
+        viewMonth: month,
+        loading: true
+      });
+    }
+  };
 
   state = {
     month: 4
   };
 
   render() {
-    const { month, cuurentMonth } = this.state;
-    console.log(cuurentMonth);
+    const { date, month, viewDate, viewMonth } = this.state;
+    console.log(date);
     return (
       <View style={styles.container}>
         <Provider store={store}>
@@ -43,16 +53,12 @@ class App extends React.Component {
         <Calendar />
 
         <TouchableOpacity onPress={() => this._changeMonth(3)}>
-          <Text>{date[month].map}</Text>
+          <Text></Text>
         </TouchableOpacity>
 
-        <Text>{month}월</Text>
+        <Text>월</Text>
 
-        <ScrollView>
-          {date[month].map(day => (
-            <Text>{day}</Text>
-          ))}
-        </ScrollView>
+        <ScrollView></ScrollView>
       </View>
     );
   }
