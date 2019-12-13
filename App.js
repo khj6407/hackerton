@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import Button from "./components/Button";
 import reducer from "./reducer";
+import Calendar from "./components/Calendar"
 
 let store = createStore(reducer);
 
@@ -22,6 +23,7 @@ class App extends React.Component {
           <Button iconName="calendar-times-o" size={40} />
           <Button iconName="calendar-check-o" size={40} />
         </Provider>
+        <Calendar />
       </View>
     );
   }
