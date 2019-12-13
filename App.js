@@ -15,6 +15,7 @@ import reducer from "./reducer";
 import Calendar from "./components/Calendar";
 import AddContent from "./components/TextInput/AddContent";
 import StartPage from "./components/Start/startPresenter";
+import Tabnavi from "./tabnavigation/Navigation";
 
 let store = createStore(reducer);
 
@@ -55,6 +56,7 @@ class App extends React.Component {
           <StatusBar barStyle="dark-content" />
         </Provider>
         <Calendar />
+        <Tabnavi />
 
         <TouchableOpacity
           onPress={() => this._changeMonth(3)}
@@ -71,6 +73,7 @@ class App extends React.Component {
     ) : (
       <StartPage />
     );
+
   }
 
   _changeMonth = data => {
