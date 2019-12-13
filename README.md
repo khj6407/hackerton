@@ -16,6 +16,8 @@
 
 ## ISSUE
 
+- expo-calendar => expo install expo-calendar
+
 ## Library
 
 - npm install axios@0.18.0
