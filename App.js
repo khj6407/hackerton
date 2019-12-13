@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import Button from "./components/Button";
 import reducer from "./reducer";
-import Calendar from "./components/Calendar"
+import Calendar from "./components/Calendar";
 
 let store = createStore(reducer);
 
