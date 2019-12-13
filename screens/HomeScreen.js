@@ -16,6 +16,7 @@ import Calendar from "../components/Calendar";
 import AddContent from "../components/TextInput/AddContent";
 import StartPage from "../components/Start/startPresenter";
 import styled from "styled-components";
+import { FontAwesome } from "@expo/vector-icons";
 
 let store = createStore(reducer);
 
@@ -55,18 +56,16 @@ class App extends React.Component {
       <View style={styles.container}>
         <View style={styles.upArea}>
           <StatusBar barStyle="dark-content" />
-          <TouchableOpacity
-            style={styles.monthBtn}
-            onPress={() => this._changeMonth(3)}
-          >
-            <Button
-              iconName="chevron-left"
-              size={30}
-              onPress={() => date[month].map(month - 1)}
-            ></Button>
+          <View style={styles.monthBtn}>
+            <TouchableOpacity onPress={() => this._minusMonth()}>
+              <FontAwesome name="chevron-left" size={30}></FontAwesome>
+            </TouchableOpacity>
+
             <Text style={styles.month}>{viewMonth}월</Text>
-            <Button iconName="chevron-right" size={30}></Button>
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => this._plusMonth()}>
+              <FontAwesome name="chevron-right" size={30}></FontAwesome>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.downArea}>
@@ -129,6 +128,30 @@ class App extends React.Component {
   _changeMonth = data => {
     this.setState({
       month: data
+    });
+  };
+
+  _minusMonth = () => {
+    const { viewMonth } = this.state;
+
+    if (viewMonth === 1) {
+      return;
+    }
+
+    this.setState({
+      viewMonth: viewMonth - 1
+    });
+  };
+
+  _plusMonth = () => {
+    const { viewMonth } = this.state;
+
+    if (viewMonth === 12) {
+      return;
+    }
+
+    this.setState({
+      viewMonth: viewMonth + 1
     });
   };
 }
