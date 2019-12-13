@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
 import { date } from "./models/dateData";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -9,10 +16,24 @@ import Calendar from "./components/Calendar";
 import AddContent from "./components/TextInput/AddContent";
 let store = createStore(reducer);
 
-//test commit
-
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    let date = new Date();
+    const cuurentMonth = date.getMonth() + 1;
+    this.setState({
+      cuurentMonth
+    });
+  }
+
+  state = {
+    month: 4
+  };
+
   render() {
+    const { month, cuurentMonth } = this.state;
+    console.log(cuurentMonth);
     return (
       <View style={styles.container}>
         <Provider store={store}>
@@ -20,14 +41,27 @@ class App extends React.Component {
           <AddContent />
         </Provider>
         <Calendar />
+
+        <TouchableOpacity onPress={() => this._changeMonth(3)}>
+          <Text>{date[month].map}</Text>
+        </TouchableOpacity>
+
+        <Text>{month}월</Text>
+
         <ScrollView>
-          {date[3].map(day => (
+          {date[month].map(day => (
             <Text>{day}</Text>
           ))}
         </ScrollView>
       </View>
     );
   }
+
+  _changeMonth = data => {
+    this.setState({
+      month: data
+    });
+  };
 }
 
 const styles = StyleSheet.create({
