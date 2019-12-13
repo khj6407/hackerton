@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, TextInput, Text } from "react-native";
 
 class AddContent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.input} placeholder="Contents.." />
+        <Text style={styles.text}>오늘 뭐 했는지 적어봐 ( •̀.̫•́)✧!!</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Contents.."
+          multiline={true}
+        />
       </View>
     );
   }
@@ -18,10 +23,20 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   input: {
-    width: 300,
+    width: 350,
     height: 300,
+    marginTop: 25,
+    borderWidth: 3,
     padding: 10,
-    marginTop: 20
+    paddingTop: 15,
+    borderRadius: 10,
+    borderColor: "#8c7ae6"
+  },
+  text: {
+    color: "#a29bfe",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 22
   }
 });
 

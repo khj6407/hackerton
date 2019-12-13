@@ -6,6 +6,7 @@ import { createStore } from "redux";
 import Button from "./components/Button";
 import reducer from "./reducer";
 import Calendar from "./components/Calendar";
+import AddContent from "./components/TextInput/AddContent";
 
 let store = createStore(reducer);
 
@@ -17,6 +18,7 @@ class App extends React.Component {
       <View style={styles.container}>
         <Provider store={store}>
           <StatusBar barStyle="dark-content" />
+          <AddContent />
         </Provider>
         <Calendar />
       </View>

@@ -2,6 +2,7 @@
 
 //2. Action
 const REDUX_TEST = "REDUX_TEST";
+const TEXT_INPUT = "TEXT_INPUT";
 
 //3. Action Creator
 const reduxTest = () => {
@@ -10,15 +11,24 @@ const reduxTest = () => {
   };
 };
 
+const textInput = () => {
+  return {
+    type: TEXT_INPUT
+  };
+};
+
 //4. Reducer
 const initialState = {
-  reduxT: "redux connection complete"
+  reduxT: "redux connection complete",
+  textI: "redux connection complete"
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REDUX_TEST:
       return applyReduxTest(state);
+    case TEXT_INPUT:
+      return applyTextInput(state);
     default:
       return state;
   }
@@ -31,10 +41,17 @@ const applyReduxTest = state => {
   };
 };
 
+const applyTextInput = state => {
+  return {
+    ...state
+  };
+};
+
 //6. Export Action Creator
 
 const actionCreator = {
-  reduxTest
+  reduxTest,
+  textInput
 };
 
 export { actionCreator };
