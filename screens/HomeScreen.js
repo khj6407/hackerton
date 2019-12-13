@@ -15,6 +15,7 @@ import reducer from "../reducer";
 import Calendar from "../components/Calendar";
 import AddContent from "../components/TextInput/AddContent";
 import StartPage from "../components/Start/startPresenter";
+import styled from "styled-components";
 
 let store = createStore(reducer);
 
@@ -52,23 +53,23 @@ class App extends React.Component {
 
     return loading ? (
       <View style={styles.container}>
-        <Provider store={store}>
+        <View style={styles.upArea}>
           <StatusBar barStyle="dark-content" />
-        </Provider>
-        <Calendar />
 
-        <TouchableOpacity
-          onPress={() => this._changeMonth(3)}
-        ></TouchableOpacity>
+          <TouchableOpacity
+            style={styles.monthBtn}
+            onPress={() => this._changeMonth(3)}
+          >
+            <Text style={styles.month}>{viewMonth}월</Text>
+          </TouchableOpacity>
+        </View>
 
-        <Text style={styles.container}>{viewMonth}월</Text>
-
-        <ScrollView>
+        <View style={styles.downArea}>
           <View style={{ flexDirection: "row" }}>
             {date[viewMonth].map(day =>
               day < 8 ? (
                 <TouchableOpacity>
-                  <Text style={styles.day}>{day}</Text>
+                  <Text style={styles.dayTxt1}>{day}</Text>
                 </TouchableOpacity>
               ) : null
             )}
@@ -78,7 +79,7 @@ class App extends React.Component {
             {date[viewMonth].map(day =>
               day > 7 && day < 15 ? (
                 <TouchableOpacity>
-                  <Text style={styles.day}>{day}</Text>
+                  <Text style={styles.dayTxt2}>{day}</Text>
                 </TouchableOpacity>
               ) : null
             )}
@@ -88,7 +89,7 @@ class App extends React.Component {
             {date[viewMonth].map(day =>
               day > 14 && day < 22 ? (
                 <TouchableOpacity>
-                  <Text style={styles.day}>{day}</Text>
+                  <Text style={styles.dayTxt3}>{day}</Text>
                 </TouchableOpacity>
               ) : null
             )}
@@ -98,22 +99,22 @@ class App extends React.Component {
             {date[viewMonth].map(day =>
               day > 21 && day < 29 ? (
                 <TouchableOpacity>
-                  <Text style={styles.day}>{day}</Text>
+                  <Text style={styles.dayTxt3}>{day}</Text>
                 </TouchableOpacity>
               ) : null
             )}
           </View>
 
-          <View style={{ flexDirection: "row" }}>
+          <View style={{ flexDirection: "row", alignSelf: "flex-start" }}>
             {date[viewMonth].map(day =>
               day > 28 ? (
                 <TouchableOpacity>
-                  <Text style={styles.day}>{day}</Text>
+                  <Text style={styles.dayTxt4}>{day}</Text>
                 </TouchableOpacity>
               ) : null
             )}
           </View>
-        </ScrollView>
+        </View>
       </View>
     ) : (
       <StartPage />
@@ -129,7 +130,7 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -140,7 +141,66 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold"
   },
-  day: {}
+  upArea: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  downArea: {
+    flex: 2,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  monthBtn: {
+    marginTop: 50
+  },
+  dayTxt1: {
+    backgroundColor: "#FDA7DF",
+    width: 37,
+    height: 37,
+    color: "#Fff",
+    textAlign: "center",
+    borderRadius: 20,
+    marginLeft: 8,
+    marginRight: 8,
+    fontSize: 23,
+    marginBottom: 15
+  },
+  dayTxt2: {
+    backgroundColor: "#FDA7DF",
+    width: 37,
+    height: 37,
+    color: "#Fff",
+    textAlign: "center",
+    borderRadius: 20,
+    marginLeft: 8,
+    marginRight: 9,
+    marginBottom: 15,
+    fontSize: 23
+  },
+  dayTxt3: {
+    backgroundColor: "#FDA7DF",
+    width: 37,
+    height: 37,
+    color: "#Fff",
+    textAlign: "center",
+    borderRadius: 20,
+    marginLeft: 9,
+    marginRight: 8,
+    fontSize: 23,
+    marginBottom: 15
+  },
+  dayTxt4: {
+    backgroundColor: "#FDA7DF",
+    width: 37,
+    height: 37,
+    color: "#Fff",
+    textAlign: "center",
+    borderRadius: 20,
+    marginRight: 6,
+    marginLeft: 11,
+    fontSize: 23
+  }
 });
 
 export default App;
