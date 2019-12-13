@@ -15,53 +15,61 @@ import reducer from "./reducer";
 import Calendar from "./components/Calendar";
 import AddContent from "./components/TextInput/AddContent";
 import StartPage from "./components/Start/startPresenter";
+
 let store = createStore(reducer);
 
 class App extends React.Component {
-  componentDidMount = async () => {
-    let date, month;
+  state = {
+    month: 4,
+    loading: false
+  };
 
+  componentDidMount = async () => {
+    let date = new Date();
+    let day;
+    let month;
     try {
-      date = await date.getDay();
-      month = await date.getMonth();
+      setTimeout(() => {
+        console.log("setTime");
+      }, 3000);
+      day = await date.getDay();
+      month = (await date.getMonth()) + 1;
     } catch (error) {
       alert("실패다");
     } finally {
-      date = date.data.results;
-      month = month.data.results;
-
+      console.log("setTimeAfter");
       this.setState({
-        viewDate: date,
+        viewDay: day,
         viewMonth: month,
         loading: true
       });
     }
   };
 
-  state = {
-    month: 4
-  };
-
   render() {
-    const { date, month, viewDate, viewMonth } = this.state;
-    console.log(date);
-    return (
+    console.log("render");
+    const { loading, viewMonth } = this.state;
+    return loading ? (
       <View style={styles.container}>
         <Provider store={store}>
           <StatusBar barStyle="dark-content" />
-          <AddContent />
-          <StartPage />
         </Provider>
         <Calendar />
 
-        <TouchableOpacity onPress={() => this._changeMonth(3)}>
-          <Text></Text>
-        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this._changeMonth(3)}
+        ></TouchableOpacity>
 
-        <Text>월</Text>
+        <Text style={styles.container}>{viewMonth}월</Text>
 
-        <ScrollView></ScrollView>
+        <ScrollView>
+          {date[viewMonth].map(day => (
+            <Text>{day}</Text>
+          ))}
+        </ScrollView>
       </View>
+    ) : (
+      <StartPage />
     );
   }
 
@@ -74,10 +82,16 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    fontSize: 30,
+    fontWeight: "bold"
+  },
+  month: {
+    fontSize: 30,
+    fontWeight: "bold"
   }
 });
 

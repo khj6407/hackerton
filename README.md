@@ -17,6 +17,7 @@
 ## ISSUE
 
 - expo-calendar => expo install expo-calendar
+- not wait timeOut => setTime error
 
 ## Library
 
