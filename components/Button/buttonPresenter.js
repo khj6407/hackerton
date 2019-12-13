@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import PropTypes from "prop-types";
 
-const Button = ({ iconName, action, size = 20 }) => {
+const Button = ({ iconName, action = null, size = 20 }) => {
   return (
     <TouchableOpacity onPress={action} style={styles.btn}>
       <FontAwesome name={iconName} size={size} />

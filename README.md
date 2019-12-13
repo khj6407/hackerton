@@ -21,6 +21,7 @@
 - react-navigation-tabs => npm install react-navigation-tabs
 - react-navigation => npm install react-navigation
 - npm install react-native-gesture-handler
+- npm install styled-components
 
 ## Library
 

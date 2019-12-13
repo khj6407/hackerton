@@ -10,7 +10,7 @@ import {
 import { date } from "../models/dateData";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import Button from "../components/Button";
+import Button from "../components/Button/buttonPresenter";
 import reducer from "../reducer";
 import Calendar from "../components/Calendar";
 import AddContent from "../components/TextInput/AddContent";
@@ -55,12 +55,17 @@ class App extends React.Component {
       <View style={styles.container}>
         <View style={styles.upArea}>
           <StatusBar barStyle="dark-content" />
-
           <TouchableOpacity
             style={styles.monthBtn}
             onPress={() => this._changeMonth(3)}
           >
+            <Button
+              iconName="chevron-left"
+              size={30}
+              onPress={() => date[month].map(month - 1)}
+            ></Button>
             <Text style={styles.month}>{viewMonth}월</Text>
+            <Button iconName="chevron-right" size={30}></Button>
           </TouchableOpacity>
         </View>
 
@@ -139,7 +144,10 @@ const styles = StyleSheet.create({
   },
   month: {
     fontSize: 30,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginLeft: 60,
+    marginRight: 60,
+    color: "#2C3A47"
   },
   upArea: {
     flex: 1,
@@ -152,6 +160,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   monthBtn: {
+    flexDirection: "row",
     marginTop: 50
   },
   dayTxt1: {
@@ -160,7 +169,7 @@ const styles = StyleSheet.create({
     height: 37,
     color: "#Fff",
     textAlign: "center",
-    borderRadius: 20,
+    borderRadius: 15,
     marginLeft: 8,
     marginRight: 8,
     fontSize: 23,
@@ -172,7 +181,7 @@ const styles = StyleSheet.create({
     height: 37,
     color: "#Fff",
     textAlign: "center",
-    borderRadius: 20,
+    borderRadius: 15,
     marginLeft: 8,
     marginRight: 9,
     marginBottom: 15,
@@ -184,7 +193,7 @@ const styles = StyleSheet.create({
     height: 37,
     color: "#Fff",
     textAlign: "center",
-    borderRadius: 20,
+    borderRadius: 15,
     marginLeft: 9,
     marginRight: 8,
     fontSize: 23,
@@ -196,7 +205,7 @@ const styles = StyleSheet.create({
     height: 37,
     color: "#Fff",
     textAlign: "center",
-    borderRadius: 20,
+    borderRadius: 15,
     marginRight: 6,
     marginLeft: 11,
     fontSize: 23
