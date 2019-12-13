@@ -4,6 +4,7 @@
 const REDUX_TEST = "REDUX_TEST";
 const TEXT_INPUT = "TEXT_INPUT";
 const START_PAGE = "START_PAGE";
+const HEADER = "HEADER";
 
 //3. Action Creator
 const reduxTest = () => {
@@ -24,11 +25,18 @@ const startPage = () => {
   };
 };
 
+const Header = () => {
+  return {
+    type: HEADER
+  };
+};
+
 //4. Reducer
 const initialState = {
   reduxT: "redux connection complete",
   textI: "redux connection complete",
-  StartP: "redux connection complete"
+  StartP: "redux connection complete",
+  Header: "redux connection complete"
 };
 
 const reducer = (state = initialState, action) => {
@@ -39,6 +47,8 @@ const reducer = (state = initialState, action) => {
       return applyTextInput(state);
     case START_PAGE:
       return applyStartPage(state);
+    case HEADER:
+      return applyHeader(state);
     default:
       return state;
   }
@@ -63,12 +73,19 @@ const applyStartPage = state => {
   };
 };
 
+const applyHeader = state => {
+  return {
+    ...state
+  };
+};
+
 //6. Export Action Creator
 
 const actionCreator = {
   reduxTest,
   textInput,
-  startPage
+  startPage,
+  Header
 };
 
 export { actionCreator };
