@@ -9,7 +9,7 @@ import { FontAwesome } from "@expo/vector-icons";
 const Tabnavigator = createBottomTabNavigator({
   HomeScreen: {
     screen:HomeScreen,
-    navigationOptions: {title:"Calendar", tabBarIcon:<FontAwesome name={} size={}/>}
+    navigationOptions: {title:"Calendar", tabBarIcon:<FontAwesome name={""} size={10}/>}
   },
   SettingScreen: {
     screen:SettingScreen,
