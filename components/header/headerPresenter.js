@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FontAwesome name={"calendar"} size={35} />
+        <FontAwesome name={"calendar"} size={30} />
         <Text style={styles.text}>밤샘 결과물</Text>
       </View>
     );
@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 0.4,
     flexDirection: "row",
-    justifyContent: "flex-start",
+    marginLeft: -190,
     alignItems: "flex-end"
   },
   text: {
     color: "#182C61",
     fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 28,
-    marginLeft: 20
+    textAlign: "left",
+    fontSize: 25,
+    marginLeft: 18
   }
 });
 

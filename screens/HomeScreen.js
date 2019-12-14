@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     marginRight: 8,
     fontSize: 23,
-    marginBottom: 15,
+    marginBottom: 20,
     shadowColor: "#999",
     shadowOffset: {
       width: 0,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginLeft: 8,
     marginRight: 9,
-    marginBottom: 15,
+    marginBottom: 20,
     fontSize: 23,
     shadowColor: "#999",
     shadowOffset: {
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     marginLeft: 9,
     marginRight: 8,
     fontSize: 23,
-    marginBottom: 15,
+    marginBottom: 20,
     shadowColor: "#999",
     shadowOffset: {
       width: 0,

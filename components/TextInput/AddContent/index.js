@@ -43,10 +43,14 @@ class AddContent extends Component {
           placeholder="Contents.."
           multiline={true}
         />
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnTxt}>저장</Text>
-          <Text style={styles.btnTxt}>수정</Text>
-        </TouchableOpacity>
+        <View style={styles.btn}>
+          <TouchableOpacity>
+            <Text style={styles.btnTxt}>저장</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn}>
+            <Text style={styles.btnTxt}>수정</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
