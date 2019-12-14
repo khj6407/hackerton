@@ -3,6 +3,8 @@ import { View, StyleSheet, TextInput, Text } from "react-native";
 
 class AddContent extends Component {
   render() {
+    const { viewMonth, viewDay } = this.props;
+
     return (
       <View style={styles.container}>
         <Text style={styles.text}>오늘 뭐 했는지 적어봐 ( •̀.̫•́)✧!!</Text>

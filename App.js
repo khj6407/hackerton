@@ -8,10 +8,11 @@ import {
   TouchableOpacity
 } from "react-native";
 import Tabnavigator from "./tabnavigation/Navigation";
+import MainNavigation from "./tabnavigation/MainNavigation";
 
 class App extends React.Component {
   render() {
-    return <Tabnavigator />;
+    return <MainNavigation />;
   }
 }
 export default App;

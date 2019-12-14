@@ -22,6 +22,7 @@
 - react-navigation => npm install react-navigation
 - npm install react-native-gesture-handler
 - npm install styled-components
+- npm install react-navigation-stack
 
 ## Library
 

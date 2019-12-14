@@ -8,14 +8,9 @@ import {
   TouchableOpacity
 } from "react-native";
 import { date } from "../models/dateData";
-import { Provider } from "react-redux";
 import { createStore } from "redux";
-import Button from "../components/Button/buttonPresenter";
 import reducer from "../reducer";
-import Calendar from "../components/Calendar";
-import AddContent from "../components/TextInput/AddContent";
 import StartPage from "../components/Start/startPresenter";
-import styled from "styled-components";
 import { FontAwesome } from "@expo/vector-icons";
 import Header from "../components/header";
 
@@ -51,7 +46,7 @@ class App extends React.Component {
 
   render() {
     console.log("render");
-    const { loading, viewMonth } = this.state;
+    const { loading, viewMonth, viewDay } = this.state;
 
     return loading ? (
       <View style={styles.container}>
@@ -74,7 +69,14 @@ class App extends React.Component {
           <View style={{ flexDirection: "row" }}>
             {date[viewMonth].map(day =>
               day < 8 ? (
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate("Detail", {
+                      month: viewMonth,
+                      day: day
+                    })
+                  }
+                >
                   <Text style={styles.dayTxt1}>{day}</Text>
                 </TouchableOpacity>
               ) : null
@@ -84,7 +86,14 @@ class App extends React.Component {
           <View style={{ flexDirection: "row" }}>
             {date[viewMonth].map(day =>
               day > 7 && day < 15 ? (
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate("Detail", {
+                      month: viewMonth,
+                      day: day
+                    })
+                  }
+                >
                   <Text style={styles.dayTxt2}>{day}</Text>
                 </TouchableOpacity>
               ) : null
@@ -94,7 +103,14 @@ class App extends React.Component {
           <View style={{ flexDirection: "row" }}>
             {date[viewMonth].map(day =>
               day > 14 && day < 22 ? (
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate("Detail", {
+                      month: viewMonth,
+                      day: day
+                    })
+                  }
+                >
                   <Text style={styles.dayTxt3}>{day}</Text>
                 </TouchableOpacity>
               ) : null
@@ -104,7 +120,14 @@ class App extends React.Component {
           <View style={{ flexDirection: "row" }}>
             {date[viewMonth].map(day =>
               day > 21 && day < 29 ? (
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate("Detail", {
+                      month: viewMonth,
+                      day: day
+                    })
+                  }
+                >
                   <Text style={styles.dayTxt3}>{day}</Text>
                 </TouchableOpacity>
               ) : null
@@ -114,7 +137,14 @@ class App extends React.Component {
           <View style={{ flexDirection: "row", alignSelf: "flex-start" }}>
             {date[viewMonth].map(day =>
               day > 28 ? (
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate("Detail", {
+                      month: viewMonth,
+                      day: day
+                    })
+                  }
+                >
                   <Text style={styles.dayTxt4}>{day}</Text>
                 </TouchableOpacity>
               ) : null
@@ -155,6 +185,10 @@ class App extends React.Component {
     this.setState({
       viewMonth: viewMonth + 1
     });
+  };
+
+  _movePage = ({ navigation }) => {
+    return navigation.navigate({ routeName: "AddContent" });
   };
 }
 
@@ -198,7 +232,15 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     marginRight: 8,
     fontSize: 23,
-    marginBottom: 15
+    marginBottom: 15,
+    shadowColor: "#999",
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.55,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   dayTxt2: {
     backgroundColor: "#B33771",
@@ -210,7 +252,15 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     marginRight: 9,
     marginBottom: 15,
-    fontSize: 23
+    fontSize: 23,
+    shadowColor: "#999",
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.55,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   dayTxt3: {
     backgroundColor: "#B33771",
@@ -222,7 +272,15 @@ const styles = StyleSheet.create({
     marginLeft: 9,
     marginRight: 8,
     fontSize: 23,
-    marginBottom: 15
+    marginBottom: 15,
+    shadowColor: "#999",
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.55,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   dayTxt4: {
     backgroundColor: "#B33771",
@@ -233,7 +291,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginRight: 6,
     marginLeft: 11,
-    fontSize: 23
+    fontSize: 23,
+    shadowColor: "#999",
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.55,
+    shadowRadius: 3.84,
+    elevation: 5
   }
 });
 
