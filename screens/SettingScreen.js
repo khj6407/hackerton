@@ -31,9 +31,9 @@ class SettingScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     flexDirection: "column",
-    marginTop: 60,
+    marginTop: 30,
     marginLeft: 30
   },
   text: {
@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
   },
   con: {
     flexDirection: "column",
-    marginTop: 30,
+    marginTop: 10,
     marginBottom: 28,
     fontSize: 25,
     marginRight: 0
   },
   conn: {
-    flex: 1,
+    flex: 0,
     flexDirection: "row"
   }
 });
