@@ -9,9 +9,9 @@
 
 ## To DO
 
-- [ ] create calendar
+- [x] create calendar
 - [ ] create select button
-- [ ] create text input
+- [x] create text input
 - [ ] create camera
 
 ## ISSUE
